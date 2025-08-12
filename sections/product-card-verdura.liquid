@@ -1,0 +1,233 @@
+<style>
+  .verdura-product-card {
+    background: white;
+    border: 1px solid #f0f0f0;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    position: relative;
+  }
+
+  .verdura-product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    border-color: #d4af37;
+  }
+
+  .verdura-product-card__image-container {
+    position: relative;
+    overflow: hidden;
+    aspect-ratio: 1;
+  }
+
+  .verdura-product-card__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+  }
+
+  .verdura-product-card:hover .verdura-product-card__image {
+    transform: scale(1.05);
+  }
+
+  .verdura-product-card__secondary-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .verdura-product-card:hover .verdura-product-card__secondary-image {
+    opacity: 1;
+  }
+
+  .verdura-product-card__content {
+    padding: 20px;
+  }
+
+  .verdura-product-card__title {
+    font-size: 16px;
+    font-weight: 400;
+    color: #333;
+    margin-bottom: 10px;
+    line-height: 1.4;
+    text-align: center;
+  }
+
+  .verdura-product-card__price {
+    font-size: 18px;
+    font-weight: 600;
+    color: #1a1a1a;
+    margin-bottom: 15px;
+    text-align: center;
+  }
+
+  .verdura-product-card__actions {
+    display: flex;
+    gap: 10px;
+  }
+
+  .verdura-product-card__button {
+    flex: 1;
+    padding: 12px 20px;
+    border: 1px solid #1a1a1a;
+    background: transparent;
+    color: #1a1a1a;
+    text-decoration: none;
+    text-align: center;
+    font-size: 14px;
+    font-weight: 500;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+  }
+
+  .verdura-product-card__button--primary {
+    background: #1a1a1a;
+    color: white;
+  }
+
+  .verdura-product-card__button--primary:hover {
+    background: #d4af37;
+    border-color: #d4af37;
+  }
+
+  .verdura-product-card__button--secondary:hover {
+    background: #1a1a1a;
+    color: white;
+  }
+
+  .verdura-product-card__badge {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: #d4af37;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .verdura-product-card__quick-view {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    background: rgba(255,255,255,0.9);
+    border: none;
+    padding: 8px 12px;
+    border-radius: 4px;
+    font-size: 12px;
+    cursor: pointer;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .verdura-product-card:hover .verdura-product-card__quick-view {
+    opacity: 1;
+  }
+
+  @media (max-width: 768px) {
+    .verdura-product-card__content {
+      padding: 15px;
+    }
+
+    .verdura-product-card__title {
+      font-size: 14px;
+    }
+
+    .verdura-product-card__price {
+      font-size: 16px;
+    }
+
+    .verdura-product-card__actions {
+      flex-direction: column;
+    }
+  }
+</style>
+
+<div class="verdura-product-card">
+  {% if product.featured_media %}
+    <div class="verdura-product-card__image-container">
+      <img 
+        src="{{ product.featured_media | image_url: width: 400, height: 400, crop: 'center' }}" 
+        alt="{{ product.featured_media.alt | escape }}"
+        class="verdura-product-card__image"
+        loading="lazy"
+        width="400"
+        height="400"
+      >
+      
+      {% if product.media[1] %}
+        <img 
+          src="{{ product.media[1] | image_url: width: 400, height: 400, crop: 'center' }}" 
+          alt="{{ product.media[1].alt | escape }}"
+          class="verdura-product-card__secondary-image"
+          loading="lazy"
+          width="400"
+          height="400"
+        >
+      {% endif %}
+
+      {% if product.tags contains 'new' %}
+        <div class="verdura-product-card__badge">New</div>
+      {% endif %}
+
+      <button class="verdura-product-card__quick-view">Quick View</button>
+    </div>
+  {% endif %}
+
+  <div class="verdura-product-card__content">
+    <h3 class="verdura-product-card__title">
+      <a href="{{ product.url }}" style="color: inherit; text-decoration: none;">
+        {{ product.title }}
+      </a>
+    </h3>
+
+    <div class="verdura-product-card__price">
+      {% if product.price_varies %}
+        From {{ product.price_min | money }}
+      {% else %}
+        {{ product.price | money }}
+      {% endif %}
+    </div>
+
+    <div class="verdura-product-card__actions">
+      {% if product.available %}
+        <form action="/cart/add" method="post" enctype="multipart/form-data" style="flex: 1;">
+          <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
+          <button type="submit" class="verdura-product-card__button verdura-product-card__button--primary">
+            Add to Cart
+          </button>
+        </form>
+      {% else %}
+        <button class="verdura-product-card__button verdura-product-card__button--secondary" disabled>
+          Sold Out
+        </button>
+      {% endif %}
+      
+      <a href="{{ product.url }}" class="verdura-product-card__button verdura-product-card__button--secondary">
+        View Details
+      </a>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Verdura Product Card",
+  "settings": [],
+  "presets": [
+    {
+      "name": "Verdura Product Card"
+    }
+  ]
+}
+{% endschema %} 
