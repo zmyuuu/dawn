@@ -1,0 +1,93 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "hero_banner": {
+      "type": "image-banner",
+      "blocks": {
+        "heading": {
+          "type": "heading",
+          "settings": {
+            "heading": "The Collection",
+            "heading_size": "h0"
+          }
+        },
+        "text": {
+          "type": "text",
+          "settings": {
+            "text": "Welcome to Verdura fine jewelry. Founded in 1939 by Duke Fulco di Verdura, the jeweler is known for its timeless, elegant and distinctly original designs.",
+            "text_style": "body"
+          }
+        },
+        "button": {
+          "type": "buttons",
+          "settings": {
+            "button_label_1": "View Collection",
+            "button_link_1": "shopify://collections/all",
+            "button_style_secondary_1": false,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
+        }
+      },
+      "block_order": [
+        "heading",
+        "text",
+        "button"
+      ],
+      "settings": {
+        "image_overlay_opacity": 30,
+        "image_height": "large",
+        "image_behavior": "none",
+        "desktop_content_position": "center",
+        "desktop_content_alignment": "center",
+        "show_text_box": true,
+        "color_scheme": "scheme-1",
+        "stack_images_on_mobile": false,
+        "mobile_content_alignment": "center",
+        "show_text_below": false
+      }
+    },
+    "featured_collection": {
+      "type": "featured-collection-verdura",
+      "settings": {
+        "collection": "all",
+        "products_to_show": 6,
+        "title": "Featured Products",
+        "description": "Discover our most popular jewelry pieces",
+        "show_filters": true,
+        "show_sort": true,
+        "show_view_all": true
+      }
+    },
+    "newsletter": {
+      "type": "newsletter-verdura",
+      "settings": {
+        "title": "Sign up now",
+        "description": "Welcome to Verdura. Please join our email list for updates about new collections and special events."
+      }
+    },
+    "instagram_feed": {
+      "type": "custom-liquid",
+      "settings": {
+        "custom_liquid": "<div class='instagram-section' style='background: #f8f8f8; padding: 60px 0; text-align: center;'><h2 style='margin-bottom: 30px; font-size: 36px; font-weight: 300; letter-spacing: 2px; text-transform: uppercase; color: #1a1a1a;'>Find us on Instagram</h2><div class='instagram-grid' style='display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; max-width: 1200px; margin: 0 auto; padding: 0 20px;'><div class='instagram-post' style='background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);'><div style='width: 100%; height: 250px; background: linear-gradient(45deg, #f0f0f0, #e0e0e0); border-radius: 4px; display: flex; align-items: center; justify-content: center; color: #666; font-size: 14px;'>@verdurajewelry</div></div><div class='instagram-post' style='background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);'><div style='width: 100%; height: 250px; background: linear-gradient(45deg, #f0f0f0, #e0e0e0); border-radius: 4px; display: flex; align-items: center; justify-content: center; color: #666; font-size: 14px;'>@verdurajewelry</div></div><div class='instagram-post' style='background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);'><div style='width: 100%; height: 250px; background: linear-gradient(45deg, #f0f0f0, #e0e0e0); border-radius: 4px; display: flex; align-items: center; justify-content: center; color: #666; font-size: 14px;'>@verdurajewelry</div></div><div class='instagram-post' style='background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);'><div style='width: 100%; height: 250px; background: linear-gradient(45deg, #f0f0f0, #e0e0e0); border-radius: 4px; display: flex; align-items: center; justify-content: center; color: #666; font-size: 14px;'>@verdurajewelry</div></div></div></div>",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    }
+  },
+  "order": [
+    "hero_banner",
+    "featured_collection",
+    "newsletter",
+    "instagram_feed"
+  ]
+} 
