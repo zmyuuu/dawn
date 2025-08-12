@@ -10,7 +10,7 @@
 
   .verdura-product-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
     border-color: #d4af37;
   }
 
@@ -120,7 +120,7 @@
     position: absolute;
     top: 15px;
     left: 15px;
-    background: rgba(255,255,255,0.9);
+    background: rgba(255, 255, 255, 0.9);
     border: none;
     padding: 8px 12px;
     border-radius: 4px;
@@ -156,18 +156,18 @@
 <div class="verdura-product-card">
   {% if product.featured_media %}
     <div class="verdura-product-card__image-container">
-      <img 
-        src="{{ product.featured_media | image_url: width: 400, height: 400, crop: 'center' }}" 
+      <img
+        src="{{ product.featured_media | image_url: width: 400, height: 400, crop: 'center' }}"
         alt="{{ product.featured_media.alt | escape }}"
         class="verdura-product-card__image"
         loading="lazy"
         width="400"
         height="400"
       >
-      
+
       {% if product.media[1] %}
-        <img 
-          src="{{ product.media[1] | image_url: width: 400, height: 400, crop: 'center' }}" 
+        <img
+          src="{{ product.media[1] | image_url: width: 400, height: 400, crop: 'center' }}"
           alt="{{ product.media[1].alt | escape }}"
           class="verdura-product-card__secondary-image"
           loading="lazy"
@@ -208,11 +208,9 @@
           </button>
         </form>
       {% else %}
-        <button class="verdura-product-card__button verdura-product-card__button--secondary" disabled>
-          Sold Out
-        </button>
+        <button class="verdura-product-card__button verdura-product-card__button--secondary" disabled>Sold Out</button>
       {% endif %}
-      
+
       <a href="{{ product.url }}" class="verdura-product-card__button verdura-product-card__button--secondary">
         View Details
       </a>
@@ -230,4 +228,4 @@
     }
   ]
 }
-{% endschema %} 
+{% endschema %}

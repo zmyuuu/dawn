@@ -1,7 +1,12 @@
 <link rel="stylesheet" href="{{ 'component-list-menu.css' | asset_url }}" media="print" onload="this.media='all'">
 <link rel="stylesheet" href="{{ 'component-search.css' | asset_url }}" media="print" onload="this.media='all'">
 <link rel="stylesheet" href="{{ 'component-menu-drawer.css' | asset_url }}" media="print" onload="this.media='all'">
-<link rel="stylesheet" href="{{ 'component-cart-notification.css' | asset_url }}" media="print" onload="this.media='all'">
+<link
+  rel="stylesheet"
+  href="{{ 'component-cart-notification.css' | asset_url }}"
+  media="print"
+  onload="this.media='all'"
+>
 
 <style>
   .verdura-header {
@@ -69,7 +74,7 @@
     left: 0;
     background: white;
     min-width: 200px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
     opacity: 0;
     visibility: hidden;
     transform: translateY(-10px);
@@ -189,7 +194,9 @@
           <a href="{{ routes.root_url }}" class="verdura-header__nav-link">The Collection</a>
           <div class="verdura-header__nav-dropdown">
             <div class="verdura-header__dropdown-item">
-              <a href="{{ routes.root_url }}/collections/bracelets-watches" class="verdura-header__dropdown-link">Bracelets & Watches</a>
+              <a href="{{ routes.root_url }}/collections/bracelets-watches" class="verdura-header__dropdown-link"
+                >Bracelets & Watches</a
+              >
             </div>
             <div class="verdura-header__dropdown-item">
               <a href="{{ routes.root_url }}/collections/cuffs" class="verdura-header__dropdown-link">Cuffs</a>
@@ -233,9 +240,7 @@
       <div class="verdura-header__search">
         <input type="text" class="verdura-header__search-input" placeholder="Search...">
       </div>
-      <a href="{{ routes.cart_url }}" class="verdura-header__cart">
-        Cart ({{ cart.item_count }})
-      </a>
+      <a href="{{ routes.cart_url }}" class="verdura-header__cart"> Cart ({{ cart.item_count }}) </a>
       <button class="verdura-header__mobile-toggle">☰</button>
     </div>
   </div>
@@ -252,4 +257,4 @@
     }
   ]
 }
-{% endschema %} 
+{% endschema %}
