@@ -181,12 +181,7 @@
     <div class="verdura-header__logo">
       <a href="{{ routes.root_url }}">
         {% if section.settings.logo != blank %}
-          <img
-            src="{{ section.settings.logo | image_url: width: 200 }}"
-            alt="{{ shop.name }}"
-            width="200"
-            height="40"
-          >
+          <img src="{{ section.settings.logo | image_url: width: 200 }}" alt="{{ shop.name }}">
         {% else %}
           <span style="font-size: 24px; font-weight: 300; letter-spacing: 2px;">VERDURA</span>
         {% endif %}
