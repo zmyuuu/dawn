@@ -571,3 +571,34 @@
     clip-path: polygon(var(--shape--blob-5));
   }
 }
+
+/* Collection card styles */
+.collection-card-link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  text-decoration: none;
+  color: inherit;
+  transition: color 0.2s ease;
+}
+
+.collection-card-link:hover {
+  color: rgba(var(--color-foreground), 0.8);
+}
+
+.collection-card-arrow {
+  display: inline-flex;
+  align-items: center;
+  margin-left: auto;
+  transition: transform 0.2s ease;
+}
+
+.collection-card-link:hover .collection-card-arrow {
+  transform: translateX(4px);
+}
+
+.collection-card-arrow svg {
+  width: 12px;
+  height: 12px;
+  fill: currentColor;
+}
