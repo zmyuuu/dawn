@@ -38,7 +38,7 @@
     flex: 1;
     padding: 16px 20px;
     border: 1px solid #444;
-    background: rgba(255,255,255,0.1);
+    background: rgba(255, 255, 255, 0.1);
     color: white;
     font-size: 16px;
     border-radius: 4px;
@@ -52,7 +52,7 @@
   .verdura-newsletter__input:focus {
     outline: none;
     border-color: #d4af37;
-    background: rgba(255,255,255,0.15);
+    background: rgba(255, 255, 255, 0.15);
   }
 
   .verdura-newsletter__submit {
@@ -77,8 +77,8 @@
 
   .verdura-newsletter__success {
     background: rgba(76, 175, 80, 0.1);
-    border: 1px solid #4CAF50;
-    color: #4CAF50;
+    border: 1px solid #4caf50;
+    color: #4caf50;
     padding: 20px;
     border-radius: 4px;
     margin-top: 20px;
@@ -87,8 +87,8 @@
 
   .verdura-newsletter__error {
     background: rgba(244, 67, 54, 0.1);
-    border: 1px solid #F44336;
-    color: #F44336;
+    border: 1px solid #f44336;
+    color: #f44336;
     padding: 20px;
     border-radius: 4px;
     margin-top: 20px;
@@ -123,7 +123,7 @@
         Sign up now
       {% endif %}
     </h2>
-    
+
     <p class="verdura-newsletter__description">
       {% if section.settings.description != blank %}
         {{ section.settings.description }}
@@ -133,46 +133,42 @@
     </p>
 
     <form class="verdura-newsletter__form" id="verdura-newsletter-form">
-      <input 
-        type="email" 
-        name="email" 
-        class="verdura-newsletter__input" 
+      <input
+        type="email"
+        name="email"
+        class="verdura-newsletter__input"
         placeholder="Enter your email address"
         required
       >
-      <button type="submit" class="verdura-newsletter__submit">
-        Submit
-      </button>
+      <button type="submit" class="verdura-newsletter__submit">Submit</button>
     </form>
 
     <div class="verdura-newsletter__success" id="verdura-newsletter-success">
       Thank you for subscribing to our newsletter!
     </div>
 
-    <div class="verdura-newsletter__error" id="verdura-newsletter-error">
-      There was an error. Please try again.
-    </div>
+    <div class="verdura-newsletter__error" id="verdura-newsletter-error">There was an error. Please try again.</div>
   </div>
 </div>
 
 <script>
-  document.addEventListener('DOMContentLoaded', function() {
+  document.addEventListener('DOMContentLoaded', function () {
     const form = document.getElementById('verdura-newsletter-form');
     const successMessage = document.getElementById('verdura-newsletter-success');
     const errorMessage = document.getElementById('verdura-newsletter-error');
 
     if (form) {
-      form.addEventListener('submit', function(e) {
+      form.addEventListener('submit', function (e) {
         e.preventDefault();
-        
+
         const email = form.querySelector('input[name="email"]').value;
-        
+
         // Here you would typically send the email to your newsletter service
         // For now, we'll just show a success message
         successMessage.style.display = 'block';
         errorMessage.style.display = 'none';
         form.reset();
-        
+
         // Hide success message after 5 seconds
         setTimeout(() => {
           successMessage.style.display = 'none';
@@ -205,4 +201,4 @@
     }
   ]
 }
-{% endschema %} 
+{% endschema %}

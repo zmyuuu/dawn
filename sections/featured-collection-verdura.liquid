@@ -149,7 +149,7 @@
           The Collection
         {% endif %}
       </h2>
-      
+
       {% if section.settings.description != blank %}
         <p class="verdura-featured-collection__description">
           {{ section.settings.description }}
@@ -182,7 +182,7 @@
     <div class="verdura-featured-collection__grid">
       {% assign collection = collections[section.settings.collection] %}
       {% assign products_to_show = section.settings.products_to_show | default: 6 %}
-      
+
       {% for product in collection.products limit: products_to_show %}
         <div class="verdura-product-card" data-category="{{ product.type | downcase }}">
           {% render 'product-card-verdura', product: product %}
@@ -192,30 +192,28 @@
 
     {% if section.settings.show_view_all %}
       <div class="verdura-featured-collection__view-all">
-        <a href="{{ collection.url }}" class="verdura-featured-collection__view-all-button">
-          View All Products
-        </a>
+        <a href="{{ collection.url }}" class="verdura-featured-collection__view-all-button"> View All Products </a>
       </div>
     {% endif %}
   </div>
 </div>
 
 <script>
-  document.addEventListener('DOMContentLoaded', function() {
+  document.addEventListener('DOMContentLoaded', function () {
     // Filter functionality
     const filterButtons = document.querySelectorAll('.verdura-featured-collection__filter-button');
     const productCards = document.querySelectorAll('.verdura-product-card');
 
-    filterButtons.forEach(button => {
-      button.addEventListener('click', function() {
+    filterButtons.forEach((button) => {
+      button.addEventListener('click', function () {
         const filter = this.getAttribute('data-filter');
-        
+
         // Update active button
-        filterButtons.forEach(btn => btn.classList.remove('active'));
+        filterButtons.forEach((btn) => btn.classList.remove('active'));
         this.classList.add('active');
-        
+
         // Filter products
-        productCards.forEach(card => {
+        productCards.forEach((card) => {
           if (filter === 'all' || card.getAttribute('data-category').includes(filter)) {
             card.style.display = 'block';
           } else {
@@ -228,15 +226,19 @@
     // Sort functionality
     const sortSelect = document.querySelector('.verdura-featured-collection__sort-select');
     if (sortSelect) {
-      sortSelect.addEventListener('change', function() {
+      sortSelect.addEventListener('change', function () {
         const sortValue = this.value;
         const grid = document.querySelector('.verdura-featured-collection__grid');
         const products = Array.from(grid.children);
-        
+
         products.sort((a, b) => {
-          const priceA = parseFloat(a.querySelector('.verdura-product-card__price').textContent.replace(/[^0-9.]/g, ''));
-          const priceB = parseFloat(b.querySelector('.verdura-product-card__price').textContent.replace(/[^0-9.]/g, ''));
-          
+          const priceA = parseFloat(
+            a.querySelector('.verdura-product-card__price').textContent.replace(/[^0-9.]/g, '')
+          );
+          const priceB = parseFloat(
+            b.querySelector('.verdura-product-card__price').textContent.replace(/[^0-9.]/g, '')
+          );
+
           if (sortValue === 'price-ascending') {
             return priceA - priceB;
           } else if (sortValue === 'price-descending') {
@@ -244,8 +246,8 @@
           }
           return 0;
         });
-        
-        products.forEach(product => grid.appendChild(product));
+
+        products.forEach((product) => grid.appendChild(product));
       });
     }
   });
@@ -306,4 +308,4 @@
     }
   ]
 }
-{% endschema %} 
+{% endschema %}
